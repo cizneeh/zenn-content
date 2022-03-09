@@ -3,7 +3,7 @@ title: "AndroidでWebSocket通信"
 emoji: "📱" 
 type: "tech"
 topics: ["Android", "Kotlin"]
-published: false
+published: true
 ---
 
 # WebSocketとは？
@@ -140,7 +140,7 @@ Androidのエミュレータでは`10.0.2.2`がローカルマシンにブリッ
 エミュレータのネットワークについては、[公式ドキュメント](https://developer.android.com/studio/run/emulator-networking?hl=ja)が詳しいです。
 
 :::message
-[okhttpのドキュメント](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/#okhttpclients-should-be-shared)にて、OkHttpClientはシングルトンにしてアプリ内で共有することが推奨されています。それぞれのインスタンスがコネクションとスレッドプールを持つので、インスタンスを複数作るとコストがかかりすぎるようです。  
+[OkHttpのドキュメント](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/#okhttpclients-should-be-shared)にて、OkHttpClientはシングルトンにしてアプリ内で共有することが推奨されています。それぞれのインスタンスがコネクションとスレッドプールを持つので、インスタンスを複数作るとコストがかかりすぎるようです。  
 
 今回はそこまでしていませんが、実際に使うときはシングルトンにしましょう。
 :::
