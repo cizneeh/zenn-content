@@ -2,7 +2,7 @@
 title: "Dockerでnginx + Node.js + MongoDBの環境を用意する"
 emoji: "✨"
 type: "tech"
-topics: ["docker", "nginx", "nodejs", "mongo"]
+topics: ["docker", "nginx", "nodejs", "mongodb"]
 published: true
 ---
 
