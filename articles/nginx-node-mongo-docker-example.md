@@ -82,6 +82,10 @@ db.createUser({
 
 ## Node.js
 
+こちらも[公式イメージ](https://hub.docker.com/_/node)を利用します。
+
+### アプリケーションコード
+
 expressと、[MongoDB公式のNode.jsドライバー](https://www.npmjs.com/package/mongodb)を利用します。([APIドキュメント](https://mongodb.github.io/node-mongodb-native/4.5/))
 
 ```shell
@@ -144,6 +148,8 @@ await collection.insertMany([doc1, doc2])
 ```
 URLで`authSource=admin`を指定して、先ほどの初期化用スクリプトで作成されるユーザーで認証しています。
 
+### Docker化
+
 次に、[公式のガイド](https://nodejs.org/ja/docs/guides/nodejs-docker-webapp/)を参考にDocker化します。
 
 ```Dockerfile:server/Dockerfile
@@ -173,9 +179,9 @@ npm-debug.log
 
 ## nginx
 
-こちらも[公式イメージ](https://hub.docker.com/_/nginx)を、[nginx公式のガイド](https://www.nginx.co.jp/blog/deploying-nginx-nginx-plus-docker/)に従って準備します。
+こちらも[公式イメージ](https://hub.docker.com/_/nginx)を使って、[nginx公式のガイド](https://www.nginx.co.jp/blog/deploying-nginx-nginx-plus-docker/)に従って準備します。
 
-まず設定ファイルを準備します。  
+### 設定ファイル 
 
 デフォルトではコンテナ内に`/etc/nginx/nginx.conf`と`/etc/nginx/conf.d/default.conf`という二つが用意され、`nginx.conf`から`default.conf`を読み込むようになっていますが、`default.conf`を削除してリバースプロキシ用の設定ファイルを代わりに用意します。
 
@@ -189,6 +195,8 @@ server {
   }
 }
 ```
+
+### Dockerfile
 
 ```Dockerfile: nginx/Dockerfile
 FROM nginx:1.21
