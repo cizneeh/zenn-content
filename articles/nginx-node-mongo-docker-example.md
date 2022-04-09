@@ -8,7 +8,8 @@ published: true
 
 # Dockerでnginx + Node.js + MongoDBの環境を用意する
 
-タイトルの通り、nginx(リバースプロキシ)、Node.js、MongoDBの環境をDocker + Docker Composeで用意します。
+タイトルの通り、nginx(リバースプロキシ)、Node.js、MongoDBの環境をDocker + Docker Composeで用意します。  
+全て公式のイメージを使用し、基本的に公式のガイドに従って準備します。
 
 バージョン
 ```shell
