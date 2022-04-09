@@ -80,7 +80,7 @@ db.createUser({
 
 また、`MONGODB_INITDB_ROOT_USERNAME`と`MONGODB_INITDB_ROOT_PASSWORD`という環境変数を指定することで、初期化時にroot権限のユーザーを`admin`データベースに作ることもできます。詳しくは[公式イメージ](https://hub.docker.com/_/mongo)のページを参照。
 
-## Node.jsコンテナ
+## Node.js
 
 expressと、[MongoDB公式のNode.jsドライバー](https://www.npmjs.com/package/mongodb)を利用します。([APIドキュメント](https://mongodb.github.io/node-mongodb-native/4.5/))
 
