@@ -26,7 +26,7 @@ docker-compose version 1.29.2, build 5becea4c
 ├── docker-compose.yml
 ├── mongo
 │   ├── init.js # DB初期化用スクリプト
-│   └── mongo-data # データ保存用ボリューム
+│   └── mongo-data # バインドマウントするやつ（データ保存用）
 ├── nginx
 │   ├── Dockerfile
 │   └── conf
