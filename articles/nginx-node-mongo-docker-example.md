@@ -8,7 +8,8 @@ published: true
 
 # Dockerでnginx + Node.js + MongoDBの環境を用意する
 
-タイトルの通り、nginx(リバースプロキシ)、Node.js、MongoDBの環境をDocker + Docker Composeで用意します。
+タイトルの通り、nginx(リバースプロキシ)、Node.js、MongoDBの環境をDocker + Docker Composeで用意します。  
+全て公式のイメージを使用し、基本的に公式のガイドに従って準備します。
 
 バージョン
 ```shell
@@ -108,7 +109,7 @@ npm install mongodb
 }
 ```
 
-適当にアプリケーションコードを用意します。
+アプリケーションコードを用意します。
 
 ```js:server/src/app.js
 import express from 'express'
@@ -242,6 +243,8 @@ services:
 
 nginx以外は外にポートを公開していません。
 
+docker-composeで作ったコンテナはデフォルトですべて`<親ディレクトリ名>_default`というネットワークに所属し、コンテナ名で通信できます。
+
 ## 動かしてみる
 
 ```shell
@@ -268,6 +271,7 @@ nginx以外は外にポートを公開していません。
 
 今回のソースコードは全て[GitHub](https://github.com/cizneeh/nginx-node-mongo-docker-example)に置いてあります。
 
+まだまだ勉強中なので、「こうした方がいい」等あったら是非教えてください。
 この記事が何かの参考になったら幸いです。
 
 ## 参考
