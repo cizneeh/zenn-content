@@ -387,6 +387,7 @@ async function main() {
     try {
       await notion.pages.create({
         parent: { database_id: databaseId },
+        // 各ノート（ページ）のプロパティ
         properties: {
           // プロパティ名はcase sensitiveっぽいので注意
           Name: {
@@ -398,6 +399,7 @@ async function main() {
             multi_select: note.tags.map(tag => ({ name: tag })),
           },
         },
+        // ページの中身
         children: note.body,
       })
     } catch (e) {
