@@ -10,7 +10,7 @@ published: true
 
 自分は技術的な勉強をするときや本を読むときなどMarkdownファイルにメモを取ってローカルに保存していたのですが、それだとPCを買い替えた時とかに移行がめんどくさいし、別の端末からもメモを確認したい時もあります。
 
-[Notion API](https://developers.notion.com/)と[公式から提供されているJavaScriptのSDK](https://www.npmjs.com/package/@notionhq/client)を使って大量のMarkdownのメモ達をNotionのデータベースに移行することができたので、この記事ではそのメモ書きとNotion APIの簡単な紹介を行います。
+[Notion API](https://developers.notion.com/)を使って大量のMarkdownのメモ達をNotionのデータベースに移行することができたので、この記事ではそのメモ書きとNotion APIの簡単な紹介を行います。[公式から提供されているJavaScriptのSDK](https://www.npmjs.com/package/@notionhq/client)を使います。
 
 なお、記事中で「ノート」という単語がこれからも出てきますが、これは一般名詞としての「ノート」であり、Notionの用語とかではないのでご注意。
 
