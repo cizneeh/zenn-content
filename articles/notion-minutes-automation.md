@@ -25,7 +25,7 @@ publicaton_name: "terass_dev"
 2. Notionの議事録用データベース(以下`meeting-notes`)にそのミーティング用のページを追加
 3. ミーティングの主催者はアジェンダを予め書き込む
 4. ミーティングを行い、議事録を取る
-5. 主催者はSlackに議事録の一部を投稿する
+5. 主催者はSlackに議事録の一部（Summary）を投稿する
 
 ![](/images/notion-minutes-automation/slack.png)
 *Slackに投稿される議事録のイメージ。*
@@ -66,9 +66,9 @@ Google Calendar APIから予定を取得し、Notionのデータベースにそ�
 
 `1.` については、議事録用のサービスアカウントを作成し、そのアカウントがゲストとなっている予定のみ議事録を作成するようにします。
 
-`2.` のfunctionのトリガーについては、Google Calendar APIでは予定の作成、変更の通知を[Webhookで受け取ることが出来る](https://developers.google.com/calendar/api/guides/push?hl=ja)ため、当初はそれをトリガーにしてNotion APIを叩き…という形を考えていたのですが、その場合**ミーティングの大部分を占める定期的な予定が扱いづらい**、という問題がありました。
+`2.` のfunctionのトリガーについては、Google Calendar APIでは予定の作成、変更の通知を[Webhookで受け取る](https://developers.google.com/calendar/api/guides/push?hl=ja)ことが出来るため、当初はそれをトリガーにしてNotion APIを叩き…という形を考えていたのですが、その場合**ミーティングの大部分を占める定期的な予定が扱いづらい**、という問題がありました。
 
-また、議事録の雛形を自動ではなく手動で用意したいというユースケースも考えられたので、最終的に 「**毎日午前二時にCloud Functionを定期実行し、その日のミーティングの議事録がまだNotionのデータベース（以下`meeting-notes`）に作られていない場合、議事録を作成する**」という形に落ち着きました。
+また、議事録の雛形を自動ではなく手動で用意したいというユースケースも考えられたので、最終的に 「**毎日午前二時に`calendarToNotion`を定期実行し、その日のミーティングの議事録がまだNotionのデータベース（以下`meeting-notes`）に作られていない場合、議事録を作成する**」という形に落ち着きました。
 
 これにより、定期的な予定的な予定の扱いと手動での議事録作成の双方に対応することができました。
 
@@ -133,7 +133,7 @@ export const calendarToNotion = async (start: string, end: string) => {
 
 Notion APIからはページの内容が[このような](https://developers.notion.com/reference/page)構造データで渡って来るので、それをSlackに投稿するための文字列（Makrdownっぽいが、Slack独自の記法）に変換してやる必要があります。
 
-見出しや箇条書きなどは愚直に変換すれば良い話ですが、一つ困ったのが議事録中のメンションの処理です。
+見出しや箇条書きなどは愚直に変換すれば良い話ですが、一つ困ったのが**議事録中のメンションの処理**です。
 
 というのも、Notionのページ中のメンションはNotion上のユーザーIDとしてAPIから渡って来ますが、それをSlack上でのメンションにするためにはSlack側のユーザーIDが必要となります。
 
