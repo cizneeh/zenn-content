@@ -4,7 +4,7 @@ emoji: "🐥"
 type: "tech"
 topics: [Notion, GCP, TypeScript]
 published: false
-publicaton_name: "terass_dev"
+publication_name: "terass_dev"
 ---
 
 # 議事録作成~Slack投稿の自動化をしたい
