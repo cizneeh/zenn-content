@@ -131,7 +131,7 @@ export const calendarToNotion = async (start: string, end: string) => {
 
 こちらは10分ごとに定期実行されるfunctionで、`meeting-notes`から対象の議事録（直近でdoneにチェックが入り、かつまだSlackへの投稿が済んでいないもの）を取ってきて、Slackへ投稿します。
 
-Notion APIからはページの内容が[このような](https://developers.notion.com/reference/page)構造データで渡って来るので、それをSlackに投稿するための文字列（Makrdownっぽいが、Slack独自の記法）に変換してやる必要があります。
+Notion APIからはページの内容が[このような](https://developers.notion.com/reference/page)構造データで渡って来るので、それをSlackに投稿するための文字列（Markdownっぽいが、Slack独自の記法）に変換してやる必要があります。
 
 見出しや箇条書きなどは愚直に変換すれば良い話ですが、一つ困ったのが**議事録中のメンションの処理**です。
 
@@ -140,9 +140,6 @@ Notion APIからはページの内容が[このような](https://developers.not
 つまり、人ごとのNotionユーザーIDとSlackユーザーIDの紐づけをどこかに持っておく必要があります。
 
 このプロジェクト内でデータはなるべく持ちたくなかったため。弊社Notionにある社員一覧のデータベースを利用することにしました。ここにSlackとNotionそれぞれのユーザーIDを持たせておき、function実行時にここに問い合わせます。
-
-![](/images/notion-minutes-automation/notion-member-page.png)
-*全社員データベースにSlackとNotionのユーザーIDを追加*
 
 以下が実際のfunctionのコードの一部です（簡単のため一部改変）。
 ```ts
@@ -177,10 +174,10 @@ export const notionToSlack = async (date: string) => {
 
 以下のような議事録のSummaryが、
 
-![](/images/notion-minutes-automation/summary2.png)
+![](/images/notion-minutes-automation/summary3.png)
 
 以下のようにSlackへ自動で投稿されます。
-![](/images/notion-minutes-automation/slack-message.png)
+![](/images/notion-minutes-automation/slack.png)
 *Notion中のメンションがSlack上でもメンションになる*
 
 ## 終わりに
