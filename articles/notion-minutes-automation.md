@@ -55,7 +55,7 @@ sequenceDiagram
 
 図中の `2. 当日分の議事録を作成` と `6. 議事録を投稿`をそれぞれ`calendarToNotion`と`notionToSlack`という定期実行されるfunctionとして実装します。
 
-## 議事録を作成する （`calendarToNotion`）
+## 1. 議事録を作成する （`calendarToNotion`）
 
 Google Calendar APIから予定を取得し、Notionのデータベースにその議事録用のページを作るfunctionです。
 
