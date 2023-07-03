@@ -3,7 +3,7 @@ title: "Notionへの議事録の作成~Slackへの投稿を自動化する"
 emoji: "🐥"
 type: "tech"
 topics: [Notion, GCP, TypeScript]
-published: false
+published: true
 publication_name: "terass_dev"
 ---
 
