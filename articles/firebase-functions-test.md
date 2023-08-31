@@ -3,7 +3,7 @@ title: "Firebase Functionsのテストを書こう"
 emoji: "🧪"
 type: "tech"
 topics: [Firebase, Test]
-published: false
+published: true
 publication_name: "terass_dev"
 ---
 
