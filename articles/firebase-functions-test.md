@@ -23,7 +23,7 @@ https://www.npmjs.com/package/firebase-functions-test
 
 今回は例として`onUpdateUser`という、usersコレクションのドキュメントが更新された時に発火する、firestoreトリガーのfunctionのテストを書いていきます。
 
-ドキュメントには`state`というフィールドがあり、これが`default`から`updated`に変更された際に、外部のAPIにリクエストを送るような関数です。
+ドキュメントには`__state`というフィールドがあり、これが`default`から`updated`に変更された際に、外部のAPIにリクエストを送るような関数です。
 
 ```ts
 export const onUpdateUser = region('asia-northeast1')
@@ -116,7 +116,7 @@ const wrapped = tester.wrap<Change<QueryDocumentSnapshot<User>>>(onUpdateUser)
 
 そして、このwrapされたfunctionをテストコード内で実行して、結果を確認するという流れです。
 
-この`wrapped`を実行する際に、functionが実行される際の引数(`onUpdate`の場合は`Change`)を渡すことが出来るのですが、そういったfirestore関連のデータを作るためのヘルパー（`makeDocumentSnapshot`や`makeChange`）もSDKに用意されています。
+この`wrapped`を実行する際に、functionが実行される際の引数(`onUpdate`の場合は`Change`)を渡すことが出来るのですが、そういったfirestore関連のデータを作るためのAPIも（`makeDocumentSnapshot`や`makeChange`）もSDKに用意されています。
 
 それらを使って以下のようにテストを書くことができます。
 
