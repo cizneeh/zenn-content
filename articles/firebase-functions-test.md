@@ -19,7 +19,7 @@ https://www.npmjs.com/package/firebase-functions-test
 
 `firebase-functions-test`とfirebaseのエミュレータを使ってテストを書いて、モックなどをなるべく使わない本物に近い環境のテストをローカルで実行しよう！という話です。
 
-## firebase functionのテストの難しいところ
+## functionのテストの難しいところ
 
 今回は例として`onUpdateUser`という、usersコレクションのドキュメントが更新された時に発火する、firestoreトリガーのfunctionのテストを書いていきます。
 
