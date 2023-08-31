@@ -19,6 +19,19 @@ https://www.npmjs.com/package/firebase-functions-test
 
 `firebase-functions-test`とfirebaseのエミュレータを使ってテストを書いて、モックなどをなるべく使わない本物に近い環境のテストをローカルで実行しよう！という話です。
 
+バージョン情報
+```json
+"dependencies": {
+  "firebase-admin": "^11.10.1",
+  "firebase-functions": "^4.4.1",
+},
+"devDependencies": {
+  "firebase-functions-test": "^3.1.0",
+  "typescript": "^5.1.6",
+  "vitest": "^0.34.1"
+}
+```
+
 ## functionのテストの難しいところ
 
 今回は例として`onUpdateUser`という、usersコレクションのドキュメントが更新された時に発火する、firestoreトリガーのfunctionのテストを書いていきます。
