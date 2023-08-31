@@ -7,7 +7,7 @@ published: false
 publication_name: "terass_dev"
 ---
 
-# Firebase Functionのテストを書く
+# Cloud Functions for Firebaseのテストを書く
 
 こんにちは。[株式会社TERASS](https://terass.com/)で主にフロントエンドエンジニアをしている越前です。
 
