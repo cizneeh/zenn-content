@@ -38,7 +38,7 @@ https://www.npmjs.com/package/firebase-functions-test
 
 ドキュメントには`__state`というフィールドがあり、これが`default`から`updated`に変更された際に、外部のAPIにリクエストを送るような関数です。
 
-```ts
+```ts:onUpdateV1Import.ts
 export const onUpdateUser = region('asia-northeast1')
   .firestore.document('users/{id}')
   .onUpdate(async (change) => {
